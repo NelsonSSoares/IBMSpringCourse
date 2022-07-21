@@ -10,6 +10,7 @@
 <bean class="com.nelson.spring.springcore.lc.annotations.Patient" name="patient" p:id="123" init-method="init" destroy-method="destroy"/>
 
 <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
 
 <context:annotation-config></context:annotation-config>		
 	
