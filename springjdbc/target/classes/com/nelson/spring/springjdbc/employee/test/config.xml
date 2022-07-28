@@ -12,6 +12,7 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util.xsd">
 	
+	<context:component-scan base-package="com.nelson.spring.springjdbc.employee.dao.impl"/>
 	
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="dataSource"
 	p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost/mydb"
@@ -22,10 +23,10 @@
 	p:dataSource-ref="dataSource"
 	/>
 	
-	<bean class="com.nelson.spring.springjdbc.employee.dao.impl.EmployeeDaoImpl" name="employeeDao">
-		<property name="jdbcTemplate">
-			<ref bean="jdbcTemplate"/>
-		</property>
-	</bean>
+<!-- 	<bean class="com.nelson.spring.springjdbc.employee.dao.impl.EmployeeDaoImpl" name="employeeDao"> -->
+<!-- 		<property name="jdbcTemplate"> -->
+<!-- 			<ref bean="jdbcTemplate"/> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 </beans>
