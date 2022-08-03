@@ -5,27 +5,26 @@ import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.nelson.spring.springjdbc.employee.dao.EmployeeDao;
-import com.nelson.spring.springjdbc.employee.dto.Employee;
+import com.nelson.spring.springorm.product.dao.ProductDao;
+import com.nelson.spring.springorm.product.entity.Product;
 
 public class Test {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/nelson/spring/springjdbc/employee/test/config.xml");
-		EmployeeDao dao = (EmployeeDao) context.getBean("employeeDao");
-//		Employee employee = new Employee();
-//		employee.setId(1);
-//		employee.setFirstName("Nelson");
-//		employee.setLastName("Soares");
-		
-		//int result = dao.create(employee);
-		//int  result = dao.update(employee);
-		//int result = dao.delete(1);
-		//Employee employee = dao.read(1);
-		List<Employee> result = dao.read();
-		System.out.println("Number of records inserted are: "+ result);
-		
+		ApplicationContext context = new ClassPathXmlApplicationContext("com/nelson/spring/springorm/product/test/config.xml");
+		ProductDao productDao = (ProductDao) context.getBean("productDao");
+		/*Product product = new Product();
+		product.setId(1);
+		product.setName("Notebook");
+		product.setDescription("ThinkPad");
+		product.setPrice(1200);
+		//productDao.create(product);
+		//productDao.update(product);
+		productDao.delete(product); */
+		//Product product = productDao.find(1);
+		List<Product> products = productDao.findAll();
+		System.out.println(products);
 	}
 
 }
