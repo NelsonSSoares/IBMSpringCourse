@@ -6,17 +6,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Comparable<User>{
 	@Id
-	private int id;
+	private Integer id;
 	private String name;
 	private String email;
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -34,6 +34,11 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+	}
+	@Override
+	public int compareTo(User user) {
+		// TODO Auto-generated method stub
+		return this.id.compareTo(user.id);
 	}
 	
 	
