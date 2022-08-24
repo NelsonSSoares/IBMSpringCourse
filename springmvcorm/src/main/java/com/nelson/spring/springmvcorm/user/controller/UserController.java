@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nelson.spring.springmvcorm.user.entity.User;
 import com.nelson.spring.springmvcorm.user.services.UserService;
@@ -46,5 +48,17 @@ public class UserController {
 
 	public void setService(UserService service) {
 		this.service = service;
+	}
+	@RequestMapping("/validateEmail")
+	 //response body indica que é uma mensagem, e não um JSP
+	public @ResponseBody String validateEmail(@RequestParam("id")int id) {
+		
+		User user = service.getUser(id);
+		String msg = "";
+		if(user != null){
+			msg = id + " Already exists";
+		}
+		
+		return msg;
 	}
 }
